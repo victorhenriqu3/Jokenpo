@@ -4,10 +4,73 @@ body {
   background-color: #fed673;
   color: #36354c;
   font-family: 'Press Start 2P', sans-serif;
+  justify-content: center;
+  }
+  
+  h2,
+  span {
+    margin: 5%;
+    font-size: 2em;
+    text-align: center;
 }
 
 .navbar-nav {
   width: 20%;
   display: flex;
   justify-content: space-between;
+}
+
+#Score {
+  display: grid;
+  font-size: 0.7em;
+  align-items: center;
+  justify-content: center;
+}
+
+.Player,
+.Computer {
+  position: relative;
+  flex-grow: 5;
+  display: flex;
+  border-radius: 20px;
+  padding: 20px 20px;
+  color: #36354c;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+ul.choice-player,
+ul.choice-computer {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+ul.choice-player li,
+ul.choice-computer li {
+  display: inline;
+
+}
+
+ul.choice-player li a img,
+ul.choice-computer li a img {
+  max-width: 100%;
+  background-color: aliceblue;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 1px #36354c
+}
+
+ul.choice-player li a,
+ul.choice-computer li a {
+  flex-direction: column;
+  opacity: 0.5;
+}
+
+ul.choice-player li a:hover,
+ul.choice-player li a.selected,
+ul.choice-computer li a.selected {
+  opacity: 1;
 }
