@@ -44,35 +44,36 @@
     <div id="Score">
       <section class="Player">
         <h2>Jogador</h2>
-        <span class="Points-player">0</span>
+        <span id="Points-player">0</span>
         <ul class="choice-player">
           <li>
-            <a id="choice-player"><img src="assets/images/Raised fist.svg" alt="Pedra" /></a>
+            <a id="choice-player-Rock" onclick="plays('Rock')"><img src="assets/images/Raised fist.svg" alt="Pedra" /></a>
           </li>
           <li>
-            <a id="choice-player"><img src="assets/images/Raised hand.svg" alt="Papel" /></a>
+            <a id="choice-player-Paper" onclick="plays('Paper')"><img src="assets/images/Raised hand.svg" alt="Papel" /></a>
           </li>
           <li>
-            <a id="choice-player"><img src="assets/images/Victory hand.svg" alt="Tesoura" /></a>
+            <a id="choice-player-Scissors" onclick="plays('Scissors')"><img src="assets/images/Victory hand.svg"
+                alt="Tesoura" /></a>
           </li>
         </ul>
       </section>
       <span>VS</span>
       <section class="Computer">
         <h2>Computador</h2>
-        <span class="Points-computer">0</span>
+        <span id="Points-computer">0</span>
         <ul class="choice-computer">
           <li>
-            <a id="choice-computer">
+            <a id="choice-computer-Rock">
               <img src="assets/images/Raised fist.svg" alt="Pedra" />
-    
+
             </a>
           </li>
           <li>
-            <a id="choice-computer"><img src="assets/images/Raised hand.svg" alt="Papel" /></a>
+            <a id="choice-computer-Paper"><img src="assets/images/Raised hand.svg" alt="Papel" /></a>
           </li>
           <li>
-            <a id="choice-computer"><img src="assets/images/Victory hand.svg" alt="Tesoura" /></a>
+            <a id="choice-computer-Scissors"><img src="assets/images/Victory hand.svg" alt="Tesoura" /></a>
           </li>
         </ul>
       </section>
