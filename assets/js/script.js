@@ -10,6 +10,21 @@ let scoreTie = 0;
 let overallScorePlayer = 0;
 let overallScoreComputer = 0;
 
+let timer;
+
+function resetScoreboard() {
+  document.getElementById("Message").innerText = " ";
+  playerChoice = "";
+  computerChoice = "";
+  selectChoices();
+}
+
+function newGame() {
+  document.getElementById("Points-player").innerText = 0;
+  document.getElementById("Points-computer").innerText = 0;
+  resetScoreboard();
+}
+
 function fillOverall() {
   document.getElementById("overallPlayer").innerText = overallScorePlayer;
   document.getElementById("overallComputer").innerText = overallScoreComputer;
@@ -21,16 +36,19 @@ function checkScore(win) {
     0: () => {
       scoreTie++;
       document.getElementById("Message").innerText = "EMPATE!!";
+      timer = setTimeout(resetScoreboard, 1000);
     },
     1: () => {
       scorePlayer++;
       overallScorePlayer++;
       document.getElementById("Message").innerText = "JOGADOR GANHOU!!";
+      timer = setTimeout(resetScoreboard, 1000);
     },
     2: () => {
       scoreComputer++;
       overallScoreComputer++;
       document.getElementById("Message").innerText = "COMPUTADOR GANHOU!!";
+      timer = setTimeout(resetScoreboard, 1000);
     },
   };
   possibleWinners[win]();
