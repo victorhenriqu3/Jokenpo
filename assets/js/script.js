@@ -5,13 +5,33 @@ let computerChoice = "";
 let Winner = -1;
 let scorePlayer = 0;
 let scoreComputer = 0;
+
 let scoreTie = 0;
+let overallScorePlayer = 0;
+let overallScoreComputer = 0;
+
+function fillOverall() {
+  document.getElementById("overallPlayer").innerText = overallScorePlayer;
+  document.getElementById("overallComputer").innerText = overallScoreComputer;
+  document.getElementById("overallTie").innerText = scoreTie;
+}
 
 function checkScore(win) {
   const possibleWinners = {
-    0: () => scoreTie++,
-    1: () => scorePlayer++,
-    2: () => scoreComputer++,
+    0: () => {
+      scoreTie++;
+      document.getElementById("Message").innerText = "EMPATE!!";
+    },
+    1: () => {
+      scorePlayer++;
+      overallScorePlayer++;
+      document.getElementById("Message").innerText = "JOGADOR GANHOU!!";
+    },
+    2: () => {
+      scoreComputer++;
+      overallScoreComputer++;
+      document.getElementById("Message").innerText = "COMPUTADOR GANHOU!!";
+    },
   };
   possibleWinners[win]();
   document.getElementById("Points-player").innerText = `${scorePlayer}`;
@@ -49,11 +69,8 @@ function selectChoices() {
 function plays(choice) {
   playerChoice = choice;
   computerChoice = acceptedChoices[Math.floor(Math.random() * (3 - 1) + 1)];
-  console.log(playerChoice, computerChoice);
   Winner =
     playerChoice === computerChoice ? 0 : checkWinner(choice, computerChoice);
-  console.log(Winner);
-
   selectChoices();
   checkScore(Winner);
 }

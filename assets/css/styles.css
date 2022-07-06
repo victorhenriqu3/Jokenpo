@@ -5,13 +5,13 @@ body {
   color: #36354c;
   font-family: 'Press Start 2P', sans-serif;
   justify-content: center;
-  }
-  
-  h2,
-  span {
-    margin: 5%;
-    font-size: 2em;
-    text-align: center;
+}
+
+h2,
+span {
+  margin: 5%;
+  font-size: 2em;
+  text-align: center;
 }
 
 .navbar-nav {
@@ -34,7 +34,6 @@ body {
   display: flex;
   border-radius: 20px;
   padding: 20px 20px;
-  color: #36354c;
   justify-content: center;
   align-items: center;
   flex-direction: column;
