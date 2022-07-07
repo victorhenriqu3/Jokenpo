@@ -13,7 +13,7 @@ let overallScoreComputer = 0;
 let timer;
 
 function resetScoreboard() {
-  document.getElementById("Message").innerText = " ";
+  document.getElementById("Message").innerText = "";
   playerChoice = "";
   computerChoice = "";
   selectChoices();
@@ -22,6 +22,9 @@ function resetScoreboard() {
 function newGame() {
   document.getElementById("Points-player").innerText = 0;
   document.getElementById("Points-computer").innerText = 0;
+  scorePlayer = 0;
+  scoreComputer = 0;
+  Winner = -1;
   resetScoreboard();
 }
 
@@ -29,6 +32,18 @@ function fillOverall() {
   document.getElementById("overallPlayer").innerText = overallScorePlayer;
   document.getElementById("overallComputer").innerText = overallScoreComputer;
   document.getElementById("overallTie").innerText = scoreTie;
+}
+
+function checkEndGame() {
+  if (scorePlayer >= 5) {
+    alert("Parabéns!!\n Você venceu ");
+    newGame();
+  }
+
+  if (scoreComputer >= 5) {
+    alert("Não foi dessa Vez !! \n Você pode tentar na próxima");
+    newGame();
+  }
 }
 
 function checkScore(win) {
@@ -91,4 +106,5 @@ function plays(choice) {
     playerChoice === computerChoice ? 0 : checkWinner(choice, computerChoice);
   selectChoices();
   checkScore(Winner);
+  checkEndGame();
 }
