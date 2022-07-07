@@ -14,9 +14,25 @@ let timer;
 
 function resetScoreboard() {
   document.getElementById("Message").innerText = "";
-  playerChoice = "";
-  computerChoice = "";
   selectChoices();
+  resetChoices();
+}
+
+function resetChoices() {
+  acceptedChoices.forEach((item) => {
+    document
+      .getElementById(`choice-player-${item}`)
+      .classList.remove("selected");
+    document
+      .getElementById(`choice-computer-${item}`)
+      .classList.remove("selected");
+    document
+      .getElementById(`choice-computer-${playerChoice}`)
+      .classList.remove("selected");
+    document
+      .getElementById(`choice-computer-${computerChoice}`)
+      .classList.remove("selected");
+  });
 }
 
 function newGame() {
@@ -36,12 +52,16 @@ function fillOverall() {
 
 function checkEndGame() {
   if (scorePlayer >= 5) {
-    alert("Parabéns!!\n Você venceu ");
+    Swal.fire({
+      html: `<h1>✔️</h1><br><span>Você ganhou com uma pontuação de ${scorePlayer} contra ${scoreComputer} da Máquina.</span>`,
+    });
     newGame();
   }
 
   if (scoreComputer >= 5) {
-    alert("Não foi dessa Vez !! \n Você pode tentar na próxima");
+    Swal.fire({
+      html: `<h1>❌</h1><br><span>Você perdeu com uma pontuação de ${scorePlayer} contra ${scoreComputer} da Máquina.</span>`,
+    });
     newGame();
   }
 }
@@ -81,15 +101,7 @@ function checkWinner(player, computer) {
 }
 
 function selectChoices() {
-  acceptedChoices.forEach((item) => {
-    document
-      .getElementById(`choice-player-${item}`)
-      .classList.remove("selected");
-    document
-      .getElementById(`choice-computer-${item}`)
-      .classList.remove("selected");
-  });
-
+  resetChoices();
   document
     .getElementById(`choice-player-${playerChoice}`)
     .classList.add("selected");

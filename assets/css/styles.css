@@ -7,6 +7,9 @@ body {
   justify-content: center;
 }
 
+h1 {
+  font-size: 3em;
+}
 h2,
 span {
   margin: 5%;
